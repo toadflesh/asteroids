@@ -36,6 +36,12 @@ def main():
         updateable.update(delta_time)
         for item in drawable:
             item.draw(screen)
+        
+        for item in asteroids:
+            if item.collisionCheck(player):
+                print("Game Over!")
+                exit(1)
+               
 
         pygame.display.flip()
         delta_time = clock.tick(60) / 1000
